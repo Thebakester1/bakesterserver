@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+.menu{
+    padding: 1%
+}
+
+.menu-item{
+    background-color: aqua;
+}
+
+.padit{
+    margin: 1%;
+    background-color: blue;
+}
