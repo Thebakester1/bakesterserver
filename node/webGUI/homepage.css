@@ -82,28 +82,6 @@ h1{
 .i2:hover{
     border: 2px solid whitesmoke;   
 }
-.i3:hover{
-    border: 2px solid whitesmoke;
-    
-}.i4:hover{
-    border: 2px solid whitesmoke;
-    
-}.i5:hover{
-    border: 2px solid whitesmoke;
-    
-}.i6:hover{
-    border: 2px solid whitesmoke;
-    
-}.i7:hover{
-    border: 2px solid whitesmoke;
-    
-}.i8:hover{
-    border: 2px solid whitesmoke;
- 
-}.i9:hover{
-    border: 2px solid whitesmoke;
-    
-}
 .rule img{
     margin-top: 5rem;
     border-radius: 0.1rem;
@@ -136,9 +114,31 @@ h1{
    
 
 }
+/* --------------------banner---------------------- */
 
+/* -----------------------caraosal--------------------- */
+.caraosal{
+  
+   
+}
+.caraosal > img{
+   
+    height: 100%;
+}
 
+/*-------------------menu grid----------------- */
+.menu-grid{
 
+}
+.menu-row{
+
+}
+.menu-item{
+
+}
+.menu-item:hover{
+    border: 2px solid green;  
+}
 
 
 
