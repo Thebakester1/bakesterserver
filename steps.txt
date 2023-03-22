@@ -1,0 +1,21 @@
+--HTML page for order entry and 3 columns
+	1.placed
+	2.Confirmed
+	3.ready
+	4.closed
+
+--Customer Data base from google forms
+	1.Customer ID, name, contact, Birthday, orders, value
+	2.date, order number,customer ID, cost
+
+
+-- design of order placement execution database implementation.
+	1. enter mobile number
+	2. check if in database fetch details else Ask to enter customer details mob, name, email,DOB
+	3. select date and product
+	4. create order and process assign state placed.
+	5. call stored procedures for moving states.
+	6. After completion update entry in orders table.
+
+-- UI design 
+	1.Process tables and buttons to create new order, move to states
