@@ -5,7 +5,7 @@ insert into Products (Product_ID, Category, ProductName, Price) values ('020001'
 insert into Products (Product_ID, Category, ProductName, Price) values ('020002', 'Donuts', 'assorted', '250');
 insert into Products (Product_ID, Category, ProductName, Price) values ('030001', 'Chocolates', 'white', '100');
 insert into Products (Product_ID, Category, ProductName, Price) values ('030002', 'Chocolates', 'Dark', '70');
-insert into Products (Product_ID, Category, ProductName, Price) values ('040001', 'Hampers', 'Valentines, '500');
+insert into Products (Product_ID, Category, ProductName, Price) values ('040001', 'Hampers', 'Valentines', '500');
 
 
 

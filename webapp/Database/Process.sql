@@ -1,7 +1,7 @@
 insert into Process (Process_ID, Order_ID, State) values (1, 7, 'placed');
 insert into Process (Process_ID, Order_ID, State) values (2, 1, 'Confirmed');
 insert into Process (Process_ID, Order_ID, State) values (3, 1, 'Confirmed');
-insert into Process (Process_ID, Order_ID, State) values (4, 10, 'placed');
+insert into Process (Process_ID, Order_ID, State) values (4, 9, 'placed');
 insert into Process (Process_ID, Order_ID, State) values (5, 1, 'closed');
 insert into Process (Process_ID, Order_ID, State) values (6, 1, 'Confirmed');
 insert into Process (Process_ID, Order_ID, State) values (7, 2, 'ready');

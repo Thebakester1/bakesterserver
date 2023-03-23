@@ -147,6 +147,21 @@ from
 GO
 ;
 
+CREATE PROCEDURE ListTodayProcess AS
+select
+    o.Date
+    p.Order_ID,
+    Customer_ID,
+    Description,
+    BillAmount,
+    State
+from
+    orders as o
+    join Process as p on p.Order_ID = o.Order_ID Where o.Date = (SELECT CAST ((SELECT CAST(GETDATE() AS Date)) as VARCHAR(12)))
+GO
+;
+
+
 -------------------------Product:create,updateprice,delete-------------------------------------------------
 CREATE PROCEDURE CreateProduct @Product_ID varchar(200),
 @Category varchar(100),
