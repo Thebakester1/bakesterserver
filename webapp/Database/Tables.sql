@@ -1,3 +1,7 @@
+CREATE DATABASE bakester
+
+use bakester
+
 CREATE TABLE Products (
     Product_ID varchar(200) Primary key,
     Category varchar(100),

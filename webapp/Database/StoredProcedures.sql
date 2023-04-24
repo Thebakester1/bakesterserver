@@ -149,7 +149,7 @@ GO
 
 CREATE PROCEDURE ListTodayProcess AS
 select
-    o.Date
+    o.Date,
     p.Order_ID,
     Customer_ID,
     Description,
