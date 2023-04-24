@@ -13,15 +13,15 @@ CREATE TABLE Customers(
     MobileNumber varchar(20) Primary key,
     Name varchar(300) not null,
     Email varchar(100),
-    DateOfBirth varchar(12),
+    DateOfBirth date,
     Orders int,
-    DateOfJoining varchar(12),
+    DateOfJoining date,
     Value int
 );
 
 CREATE TABLE Orders(
     Order_ID varchar(20) Primary Key,
-    Date varchar(12),
+    Date date,
     Customer_ID varchar(20),
     Product_ID varchar(200),
     Description varchar(1000),
