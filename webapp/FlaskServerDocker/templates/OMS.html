@@ -48,22 +48,63 @@
 
     <div class="container menu">
         <div class="row menu-row">
-            <div class="col-6 menu-item">
-                <div class="col-12 padit">adi</div>
-            </div>
-            <div class="col-6 menu-item">
-                <div class="col-12 padit">pratik</div>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Order_ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Customer_ID</th>
+                    <th scope="col">Product_ID</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">BillAmount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.order_id }}</th>
+                            <td>{{ order.date }}</td>
+                            <td>{{ order.customer_id }}</td>
+                            <td>{{ order.product_id }}</td>
+                            <td>{{ order.description }}</td>
+                            <td>{{ order.billamount }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
         
         
         <div class="row menu-row">
-            <div class="col-6 menu-item">
-                <div class="col-12 padit">adi</div>
-            </div>
-            <div class="col-6 menu-item">
-                <div class="col-12 padit">pratik</div>
-            </div>
+           
+    <form action="" method = "POST">
+        <div class="form-group row">
+          <label for="order_id">Order_ID</label>
+          <input type="number" class="form-control" name="order_id" id="order_id">
+        </div>
+        <div class="form-group row">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" name="date" id="date">
+        </div>
+        <div class="form-group row">
+            <label for="customer_id">Customer_ID</label>
+            <input type="number" class="form-control" name="customer_id" id="customer_id">
+        </div>
+        <div class="form-group row">
+            <label for="product_id">Product_ID</label>
+            <input type="number" class="form-control" name="product_id" id="product_id">
+        </div>
+        <div class="form-group row">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" id="description">
+        </div>
+        <div class="form-group row">
+            <label for="billamount">BillAmount</label>
+            <input type="number" class="form-control" name="billamount" id="billamount">
+        </div>
+        <button type="btnAdd" class="btn btn-primary">Submit</button>
+        <a href="/" class="btn btn-primary">Cancel</a>
+      </form>
         </div>
         
     </div>
