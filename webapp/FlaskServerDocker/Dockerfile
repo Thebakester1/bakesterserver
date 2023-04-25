@@ -1,24 +1,30 @@
 # Using official python runtime base image
-FROM python:3.9-slim
+FROM ubuntu:20.04
 
-# add curl for healthcheck
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+#Install dependencies
+RUN apt-get update && apt-get install -y
+RUN apt-get install -y python
+RUN apt-get install -y python3-pip
+RUN apt-get install -y curl 
+RUN apt-get update
 
-# Set the application directory
+#install odbc on ubuntu
+RUN apt-get install unixodbc -y \
+ && apt-get install unixodbc-dev -y
+
+#install microsoft driver for sql server on ubuntu
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+  && curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+  && apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql17
+
+#Run flask app
+RUN mkdir /app
 WORKDIR /app
 
-# Install our requirements.txt
-COPY requirements.txt /app/requirements.txt
-RUN pip install -r requirements.txt
+EXPOSE 5001
 
-# Copy our code from the current folder to /app inside the container
 COPY . .
+RUN pip3 install -r requirements.txt
 
-# Make port 80 available for links and/or publish
-EXPOSE 80
-
-# Define our command to be run when launching the container
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:80", "--log-file", "-", "--access-logfile", "-", "--workers", "4", "--keep-alive", "0"]
+ENTRYPOINT [ "bash" ]
+# CMD [ "python3", "app.py"]

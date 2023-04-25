@@ -10,24 +10,13 @@ def connection():
     d = 'bakester'
     u = 'sa'  # Your login
     p = 'iamAdmin@16;'  # Your login password
-    # cstr = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER='+s+';DATABASE='+d+';UID='+u+';PWD='+ p
-    # conn = pyodbc.connect(cstr)
+    # cstr = 'DRIVER=ODBC Driver 17 for SQL Server;SERVER=' + \
+    #     s+';PORT:'+port+';DATABASE='+d+';UID='+u+';PWD=' + p
     cstr = 'DRIVER=ODBC Driver 17 for SQL Server;SERVER=' + \
-        s+';PORT:'+port+';DATABASE='+d+';UID='+u+';PWD=' + p
+        s+','+port+';DATABASE='+d+';UID='+u+';PWD=' + p
     conn = pyodbc.connect(cstr)
     return conn
 
-# @bakester.route("/oms", methods = ['GET','POST'])
-# def oms():
-#     orders=[]
-#     if request.method == 'GET':
-#         conn = connection()
-#         cursor = conn.cursor()
-#         cursor.execute("SELECT TOP (1000) [Order_ID],[Date],[Customer_ID],[Product_ID],[Description],[BillAmount] FROM [bakester].[dbo].[Orders]")
-#     for row in cursor.fetchall():
-#         orders.append({"order_id": row[0], "date": row[1], "customer_id": row[2], "product_id": row[3], "description": row[4], "billamount": row[5]})
-#     conn.close()
-#     return render_template("OMS.html", orders = orders)
 
 
 @bakester.route("/oms", methods=['GET', 'POST'])
@@ -98,4 +87,4 @@ def About():
 
 
 if (__name__ == "__main__"):
-    bakester.run()
+    bakester.run(host ='0.0.0.0', port = 5000, debug = True) 
