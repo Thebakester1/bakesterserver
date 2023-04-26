@@ -1,0 +1,15 @@
+version : "3"
+services:
+  mysql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports: 
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=iamAdmin@16
+  
+  webapp:
+    image: webapp:latest
+    
+    ports:
+      - 5000:5000

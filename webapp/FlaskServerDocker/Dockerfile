@@ -26,5 +26,5 @@ EXPOSE 5001
 COPY . .
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT [ "bash" ]
-# CMD [ "python3", "app.py"]
+# ENTRYPOINT [ "bash" ]
+CMD [ "python3", "app.py"]

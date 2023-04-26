@@ -5,7 +5,7 @@ bakester = Flask(__name__)
 
 
 def connection():
-    s = 'localhost'  # Your server name
+    s = '192.168.1.7'  # Your server name
     port = '1433'
     d = 'bakester'
     u = 'sa'  # Your login
