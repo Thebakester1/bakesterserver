@@ -21,7 +21,7 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 RUN mkdir /app
 WORKDIR /app
 
-EXPOSE 5001
+EXPOSE 5000
 
 COPY . .
 RUN pip3 install -r requirements.txt

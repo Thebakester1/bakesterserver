@@ -13,6 +13,25 @@
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var itemCount = 1;
+    
+                $("#addItem").click(function() {
+                    var newItem = `
+                        <div>
+                            <label>Title:</label>
+                            <input type="text" name="title${itemCount}" required>
+                            <label>Charge:</label>
+                            <input type="number" name="charge${itemCount}" step="0.01" required>
+                        </div>
+                    `;
+                    $("#itemContainer").append(newItem);
+                    itemCount++;
+                });
+            });
+        </script>
 
 </head>
 
@@ -33,7 +52,6 @@
                     <li class="nav-item"><a href="http://127.0.0.1:5000/Menu" method="get">Menu</a></li>
                     <li class="nav-item"><a href="http://127.0.0.1:5000/About" method="get">About</a></li>
                     <li class="nav-item"><a href="http://127.0.0.1:5000/Contact" method="get">Contact</a></li>
-                    <li class="nav-item"><a href="http://127.0.0.1:5000/bill" method="get">Generate Bill</a></li>
 
                 </ul>
 
@@ -48,65 +66,24 @@
 
 
     <div class="container menu">
-        <div class="row menu-row">
-            <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="col">Order_ID</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Customer_ID</th>
-                    <th scope="col">Product_ID</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">BillAmount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders %}
-                        <tr>
-                            <td>{{ order.order_id }}</th>
-                            <td>{{ order.date }}</td>
-                            <td>{{ order.customer_id }}</td>
-                            <td>{{ order.product_id }}</td>
-                            <td>{{ order.description }}</td>
-                            <td>{{ order.billamount }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        
-        
-        <div class="row menu-row">
-           
-    <form action="http://127.0.0.1:5000/oms" method = "POST">
-        <div class="form-group row">
-          <label for="order_id">Order_ID</label>
-          <input type="number" class="form-control" name="order_id" id="order_id">
-        </div>
-        <div class="form-group row">
-            <label for="date">Date</label>
-            <input type="date" class="form-control" name="date" id="date">
-        </div>
-        <div class="form-group row">
-            <label for="customer_id">Customer_ID</label>
-            <input type="number" class="form-control" name="customer_id" id="customer_id">
-        </div>
-        <div class="form-group row">
-            <label for="product_id">Product_ID</label>
-            <input type="text" class="form-control" name="product_id" id="product_id">
-        </div>
-        <div class="form-group row">
-            <label for="description">Description</label>
-            <input type="text" class="form-control" name="description" id="description">
-        </div>
-        <div class="form-group row">
-            <label for="billamount">BillAmount</label>
-            <input type="number" class="form-control" name="billamount" id="billamount">
-        </div>
-        <button type="btnAdd" class="btn btn-primary">Submit</button>
-        <a href="/" class="btn btn-primary">Cancel</a>
-      </form>
-        </div>
+        <form action="http://192.168.1.12:5000/invoice" method = "POST">
+            <div class="form-group row">
+              <label for="to_addr">Bill to name</label>
+              <input type="text" class="form-control" name="order_id" id="order_id">
+            </div>
+            <div id="itemContainer form-group row">
+                <button type="button" id="addItem">Add Item</button>
+                <div>   
+                    <label>Title:</label>
+                    <input type="text" name="title0" required>
+                    <label>Charge:</label>
+                    <input type="number" name="charge0" step="0.01" required>
+                </div>
+            </div>
+            
+            <button type="btnAdd" class="btn btn-primary">Submit</button>
+            <a href="/" class="btn btn-primary">Cancel</a>
+          </form>
         
     </div>
 
